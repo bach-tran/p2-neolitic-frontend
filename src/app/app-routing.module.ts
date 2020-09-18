@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 
 const routes: Routes = [
-  { path: 'neolitic/user/register', component: RegistrationPageComponent }
+  { path: 'register', component: RegistrationPageComponent }
 ];
 
 @NgModule({
