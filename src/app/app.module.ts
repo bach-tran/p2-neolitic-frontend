@@ -11,6 +11,7 @@ import { PostcardComponent } from './postcard/postcard.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { ConsumerHomeComponent } from './consumer-home/consumer-home.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     PostcardComponent,
     RegistrationPageComponent,
     ConsumerHomeComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
