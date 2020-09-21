@@ -1,1 +1,8 @@
-<p>consumer-home works!</p>
+<div class="container">
+    <h5><u>Current Societies Available to Join:</u></h5>
+    <ul>
+        <li *ngFor="let community of communities">
+            <a>{{ community.name }}</a>
+        </li>
+    </ul>
+</div>

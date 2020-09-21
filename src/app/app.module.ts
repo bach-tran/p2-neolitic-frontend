@@ -12,6 +12,7 @@ import { RegistrationPageComponent } from './registration-page/registration-page
 import { ConsumerHomeComponent } from './consumer-home/consumer-home.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { CommunityPageComponent } from './community-page/community-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
     RegistrationPageComponent,
     ConsumerHomeComponent,
     AdminHomeComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    CommunityPageComponent
   ],
   imports: [
     BrowserModule,
