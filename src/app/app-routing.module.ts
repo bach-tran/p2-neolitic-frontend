@@ -5,13 +5,16 @@ import { ConsumerHomeComponent } from './consumer-home/consumer-home.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CommunityPageComponent } from './community-page/community-page.component'
+import { HomePageComponent } from './home-page/home-page.component';
 
 const routes: Routes = [
   { path: 'register', component: RegistrationPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'consumer-home', component: ConsumerHomeComponent },
   { path: 'admin-home', component: AdminHomeComponent },
-  { path: 'community-page/:communityId', component: CommunityPageComponent}
+  { path: 'community-page/:communityId', component: CommunityPageComponent},
+  { path: 'home-page', component: HomePageComponent},
+  { path: '**', redirectTo: 'home-page', pathMatch: 'full' }
 ];
 
 @NgModule({

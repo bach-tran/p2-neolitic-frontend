@@ -47,4 +47,10 @@ export class LoginPageComponent implements OnInit {
       console.log(error);
     }
   }
+
+  async register(): Promise<void> {
+
+    this.router.navigateByUrl("/register");
+
+  }
 }
