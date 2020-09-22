@@ -4,11 +4,18 @@
       <p class="card-text text-white">{{postcard.caption}}</p>
       <p class="card-text text-white">{{postcard.author.username}}</p>
       <a class="btn btn-light" id="commentModalBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#commentsModal">Comment</a>
+      <a class="btn btn-light" id = "#newPost" type="button" class="btn btn-primary" data-toggle="modal" data-target="#newPostModal" >New</a>
     </div>
 </div>
 
 <script>
   $('#commentsModal').on('shown.bs.modal', function () {
     $('#commentModalBtn').trigger('focus');
+  })
+</script>
+
+<script>
+  $('#newPostModal').on('shown.bs.modal', function () {
+    $('#newPost').trigger('focus');
   })
 </script>

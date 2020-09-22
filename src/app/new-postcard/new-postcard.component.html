@@ -1,5 +1,5 @@
-<p>Hello!</p>
-<div class="modal fade" id="newPostModal" tabindex="-1" role="dialog" aria-labelledby="commentsModal" aria-hidden="true" #content>
+
+<div class="modal fade" id="newPostModal" tabindex="-1" role="dialog" aria-labelledby="newPostModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -18,8 +18,9 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Post</button>
+            <button type="button" class="btn btn-primary"  (click) = "create()">Post</button>
         </div>
       </div>
     </div>
 </div>
+

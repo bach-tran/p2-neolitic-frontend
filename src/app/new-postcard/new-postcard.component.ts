@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewPostcardService } from '../services/new-postcard-service/new-postcard-service';
 
 @Component({
   selector: 'app-new-postcard',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-postcard.component.css']
 })
 export class NewPostcardComponent implements OnInit {
-
-  constructor() { }
+  private newPostcardService: NewPostcardService;
+  constructor( newPostcardService: NewPostcardService ) { 
+    this.newPostcardService = newPostcardService;
+  }
 
   ngOnInit(): void {
   }
 
+  public async create(): Promise<void>
+  {
+    this.newPostcardService.createNewPost();
+  }
 }
