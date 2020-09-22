@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'register', component: RegistrationPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'consumer-home', component: ConsumerHomeComponent },
-  { path: 'admin-home', component: AdminHomeComponent }
+  { path: 'admin-home', component: AdminHomeComponent },
+  { path: 'community-page/:communityId', component: CommunityPageComponent}
 ];
 
 @NgModule({
