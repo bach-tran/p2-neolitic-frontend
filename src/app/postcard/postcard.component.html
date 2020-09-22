@@ -1,7 +1,8 @@
 <div class="card bg-dark text-center">
-    <img class="card-img-top" src="https://picsum.photos/400/600" alt="Card image">
+    <img class="card-img-top" [src]="imgSource" alt="Card image">
     <div class="card-body">
-      <p class="card-text text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-      <a href="#" class="btn btn-light">Comment</a>
+      <p class="card-text text-white">{{postcard.caption}}</p>
+      <p class="card-text text-white">{{postcard.author}}</p>
+      <a class="btn btn-light">Comment</a>
     </div>
 </div>
