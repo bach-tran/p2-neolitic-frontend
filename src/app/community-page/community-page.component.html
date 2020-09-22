@@ -1,1 +1,8 @@
-<p>community-page works!</p>
+<div class="container">
+    <h5><u>Welcome to the Society!</u></h5>
+    <ul>
+        <li *ngFor="let postcard of postcards">
+            <app-postcard></app-postcard>
+        </li>
+    </ul>
+</div>
