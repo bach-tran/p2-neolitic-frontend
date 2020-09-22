@@ -14,6 +14,8 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CommunityPageComponent } from './community-page/community-page.component';
 import { ModalComponent } from './modal/modal.component';
+import { NewPostcardComponent} from './new-postcard/new-postcard.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { ModalComponent } from './modal/modal.component';
     AdminHomeComponent,
     LoginPageComponent,
     CommunityPageComponent,
-    ModalComponent
+    ModalComponent,
+    NewPostcardComponent
   ],
   imports: [
     BrowserModule,
