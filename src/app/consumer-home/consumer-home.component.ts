@@ -30,6 +30,8 @@ export class ConsumerHomeComponent implements OnInit {
   }
 
   public setCommunities(communities: Community[]): void {
+    communities.sort((a, b) => (a.name > b.name) ? 1 : -1);
+
     this.communities = communities;
   }
 

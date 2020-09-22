@@ -45,6 +45,8 @@ export class CommunityPageComponent implements OnInit, OnDestroy {
   }
 
   public setPostcards(postcards: Postcard[]): void {
+    postcards.sort((a, b) => (a.timePosted > b.timePosted) ? -1 : 1);
+
     this.postcards = postcards;
   }
 }
