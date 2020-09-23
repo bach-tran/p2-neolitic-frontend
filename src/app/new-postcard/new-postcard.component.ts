@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NewPostcardService } from '../services/new-postcard-service/new-postcard-service';
 import {HttpClientModule, HttpClient } from '@angular/common/http';
 import { NgModel } from '@angular/forms';
@@ -9,13 +9,15 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./new-postcard.component.css']
 })
 export class NewPostcardComponent implements OnInit {
-  @Input() 
+  @Input()
   communityId : string
   private newPostcardService: NewPostcardService;
 
+  @Output() updatePosts: EventEmitter<void> = new EventEmitter();
+
   selectedFile = null;
   caption = null;
-  constructor( newPostcardService: NewPostcardService, private http: HttpClient ) { 
+  constructor( newPostcardService: NewPostcardService, private http: HttpClient ) {
     this.newPostcardService = newPostcardService;
   }
 
@@ -35,7 +37,8 @@ export class NewPostcardComponent implements OnInit {
     fd.append('communityId', this.communityId)
     fd.append('caption', this.caption)
     console.log(fd);
-    this.newPostcardService.createNewPost(fd);
-    
+    await this.newPostcardService.createNewPost(fd);
+
+    this.updatePosts.emit();
   }
 }

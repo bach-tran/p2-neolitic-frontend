@@ -8,7 +8,7 @@
     </ul>
 
     <app-modal [postcardId]="modalPostcardId"></app-modal>
-    <app-new-postcard [communityId] = "communityId"></app-new-postcard>
+    <app-new-postcard (updatePosts)="updatePosts()" [communityId] = "communityId"></app-new-postcard>
 
     <script>
       $('#newPostModal').on('shown.bs.modal', function () {
