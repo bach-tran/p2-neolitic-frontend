@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Comment } from '../models/comment';
@@ -10,20 +10,24 @@ import { Postcard } from '../models/postcard';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent implements OnInit, OnChanges {
 
   @Input() postcardId: number;
   commentText: string;
   comments = [];
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) { } ;
+  ngOnInit(): void { }
 
-  ngOnInit(): void {
-    this.getComments();
+  ngOnChanges(): void {
+    if (this.postcardId) {
+      this.getComments();
+    }
   }
 
   private async getComments(): Promise<Comment[]> {
-    const response = this.http.get<Comment[]>(environment.API_URL + ':' + environment.PORT + `/neolitic/comment?postId=${this.postcardId}`, {
+    const response = this.http.get<Comment[]>(environment.API_URL + ':' + environment.PORT + `/neolitic/comment?postId=${this.postcardId}`,
+    {
       withCredentials: true
     }).toPromise();
 
