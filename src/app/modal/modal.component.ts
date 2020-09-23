@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Comment } from '../models/comment';
+import { Postcard } from '../models/postcard';
 
 @Component({
   selector: 'app-modal',
@@ -11,7 +12,8 @@ import { Comment } from '../models/comment';
 })
 export class ModalComponent implements OnInit {
 
-  @Input() postId: number;
+  @Input() postcardId: number;
+  commentText: string;
   comments = [];
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -21,7 +23,7 @@ export class ModalComponent implements OnInit {
   }
 
   private async getComments(): Promise<Comment[]> {
-    const response = this.http.get<Comment[]>(environment.API_URL + ':' + environment.PORT + `/neolitic/comment?postId=${this.postId}`, {
+    const response = this.http.get<Comment[]>(environment.API_URL + ':' + environment.PORT + `/neolitic/comment?postId=${this.postcardId}`, {
       withCredentials: true
     }).toPromise();
 
@@ -34,5 +36,21 @@ export class ModalComponent implements OnInit {
     comments.sort((a, b) => (a.timePosted > b.timePosted) ? -1 : 1);
 
     this.comments = comments;
+  }
+
+  public async postComment(): Promise<void> {
+    const response = this.http.post<Comment>(environment.API_URL + ':' + environment.PORT + '/neolitic/comment', {
+      postId: this.postcardId,
+      text: this.commentText
+    },
+    {
+      withCredentials: true
+    }).toPromise();
+
+    // this.comments.unshift(await response);
+    this.commentText = "";
+
+    await response
+    await this.getComments();
   }
 }
