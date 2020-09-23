@@ -14,6 +14,8 @@ import { ActivatedRoute } from '@angular/router';
 export class CommunityPageComponent implements OnInit, OnDestroy {
   @Input() communityId: number;
 
+  modalPostcardId: number;
+
   private sub: any;
   postcards = [];
 
@@ -21,7 +23,7 @@ export class CommunityPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.sub = this.route.params.subscribe(params => {
-      this.communityId = +params['communityId']; 
+      this.communityId = +params['communityId'];
     });
 
     this.getPostcards();
@@ -48,5 +50,10 @@ export class CommunityPageComponent implements OnInit, OnDestroy {
     postcards.sort((a, b) => (a.timePosted > b.timePosted) ? -1 : 1);
 
     this.postcards = postcards;
+  }
+
+  public displayModal(postcardId: any) {
+    console.log(postcardId);
+    this.modalPostcardId = postcardId;
   }
 }
