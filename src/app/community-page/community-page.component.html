@@ -1,9 +1,17 @@
 <div class="container">
     <h5><u>Welcome to the Society!</u></h5>
+    <button class="btn btn-light" id = "#newPost" type="button" class="btn btn-primary" data-toggle="modal" data-target="#newPostModal" style="float: right;" >New</button>
     <ul>
         <li *ngFor="let postcard of postcards">
             <app-postcard [postcard]="postcard"></app-postcard>
         </li>
     </ul>
-    <app-new-postcard></app-new-postcard>
+    <app-modal></app-modal>
+    <app-new-postcard [communityId] = "communityId"></app-new-postcard>
+
+    <script>
+    $('#newPostModal').on('shown.bs.modal', function () {
+      $('#newPost').trigger('focus');
+    })
+  </script>
 </div>

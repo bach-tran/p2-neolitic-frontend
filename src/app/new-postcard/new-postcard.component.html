@@ -12,7 +12,8 @@
             <form>
               <div class="form-group">
                 <label for="caption" class="col-form-label">Caption:</label>
-                <textarea class="form-control" id="comment-text"></textarea>
+                <textarea class="form-control" id="comment-text" [(ngModel)]="caption" name = "caption"></textarea>
+                <input type="file" id="file" (change)="onFileSelected($event)">
               </div>
             </form>
           </div>
