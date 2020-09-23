@@ -4,27 +4,23 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, ViewChild } from '@angular/core';
 import { User } from '../../models/user';
 
+
 @Injectable(
 {providedIn: 'root'}
 )
+
 export class NewPostcardService {
     @ViewChild('content') content: any;
     private modals: any[] = [];
-    async createNewPost(): Promise <void>
+
+    constructor( private http: HttpClient ){}
+    async createNewPost(form : FormData): Promise <void>
     {
-        console.log("Sanity Test");
-    }
-
-    open(id: string) {
-        // open modal specified by id
-        const modal = this.modals.find(x => x.id === id);
-        modal.open();
-    }
-
-    close(id: string) {
-        // close modal specified by id
-        const modal = this.modals.find(x => x.id === id);
-        modal.close();
+        this.http.post(environment.API_URL + ':' + environment.PORT + `/neolitic/post`, form, {withCredentials: true})
+    .subscribe(res => {
+      console.log(res);
+      
+    });
     }
 }
 

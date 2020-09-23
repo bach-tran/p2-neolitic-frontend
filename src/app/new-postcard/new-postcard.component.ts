@@ -35,12 +35,7 @@ export class NewPostcardComponent implements OnInit {
     fd.append('communityId', this.communityId)
     fd.append('caption', this.caption)
     console.log(fd);
-    this.http.post(environment.API_URL + ':' + environment.PORT + `/neolitic/post`, fd, {withCredentials: true})
-    .subscribe(res => {
-      console.log(res);
-      
-    });
+    this.newPostcardService.createNewPost(fd);
     
-    //this.newPostcardService.createNewPost();
   }
 }
