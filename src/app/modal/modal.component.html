@@ -8,19 +8,24 @@
           </button>
         </div>
         <div class="modal-body">
-          // Comments go here
+          <ul>
+            <li *ngFor="let comment of comments">
+                <p>{{ comment.text }}</p>
+                <p>- {{ comment.author.username }}</p>
+            </li>
+          </ul>
         </div>
         <div class="modal-body">
-            <form>
+            <form id="commentForm">
               <div class="form-group">
                 <label for="comment-text" class="col-form-label">Comment:</label>
-                <textarea class="form-control" id="comment-text"></textarea>
+                <textarea name="commentText" class="form-control" [(ngModel)]="commentText"></textarea>
               </div>
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Send message</button>
+            <button (click)="postComment()" type="button" class="btn btn-primary">Send message</button>
         </div>
       </div>
     </div>

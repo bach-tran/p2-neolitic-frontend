@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Postcard } from '../models/postcard';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-postcard',
@@ -11,11 +12,16 @@ export class PostcardComponent implements OnInit {
   @Input() postcard: Postcard;
   public imgSource: string;
 
+  @Output() postcardId: EventEmitter<number> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
-    this.imgSource = `http://ec2-18-220-126-199.us-east-2.compute.amazonaws.com:8085/neolitic/post/image/${this.postcard.id}`;
-    
+    this.imgSource = environment.API_URL + ':' + environment.PORT + `/neolitic/post/image/${this.postcard.id}`;
+  }
+
+  emitPostcardId(): void {
+    this.postcardId.emit(this.postcard.id);
   }
 
 }

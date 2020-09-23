@@ -3,15 +3,19 @@
     <button class="btn btn-light" id = "#newPost" type="button" class="btn btn-primary" data-toggle="modal" data-target="#newPostModal" style="float: right;" >New</button>
     <ul>
         <li *ngFor="let postcard of postcards">
-            <app-postcard [postcard]="postcard"></app-postcard>
+            <app-postcard (postcardId)="displayModal($event)" [postcard]="postcard"></app-postcard>
         </li>
     </ul>
-    <app-modal></app-modal>
+
+    <app-modal [postcardId]="modalPostcardId"></app-modal>
     <app-new-postcard [communityId] = "communityId"></app-new-postcard>
 
     <script>
-    $('#newPostModal').on('shown.bs.modal', function () {
-      $('#newPost').trigger('focus');
-    })
-  </script>
+      $('#newPostModal').on('shown.bs.modal', function () {
+        $('#newPost').trigger('focus');
+      })
+      $('#commentsModal').on('shown.bs.modal', function () {
+        $('#commentModalBtn').trigger('focus');
+      })
+    </script>
 </div>
