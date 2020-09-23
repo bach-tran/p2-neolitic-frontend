@@ -54,7 +54,7 @@ export class ModalComponent implements OnInit, OnChanges {
     // this.comments.unshift(await response);
     this.commentText = "";
 
-    await response
+    await response;
     await this.getComments();
   }
 }

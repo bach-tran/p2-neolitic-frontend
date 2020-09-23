@@ -35,14 +35,14 @@ export class CommunityPageComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  private async getPostcards(): Promise<Postcard[]> {
+  public async getPostcards(): Promise<Postcard[]> {
     const response = this.http.get<Postcard[]>(environment.API_URL + ':' + environment.PORT + `/neolitic/post?communityId=${this.communityId}`, {
       withCredentials: true
     }).toPromise();
 
     this.setPostcards(await response);
 
-    console.log(this.postcards);
+    console.log('this ran');
     return response;
   }
 
@@ -55,5 +55,13 @@ export class CommunityPageComponent implements OnInit, OnDestroy {
   public displayModal(postcardId: any) {
     console.log(postcardId);
     this.modalPostcardId = postcardId;
+  }
+
+  public updatePosts() {
+    var seconds = 2;
+    var e = new Date().getTime() + (seconds * 1000);
+    while (new Date().getTime() <= e) {}
+
+    this.getPostcards();
   }
 }
