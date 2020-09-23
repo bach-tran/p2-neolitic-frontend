@@ -15,6 +15,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { CommunityPageComponent } from './community-page/community-page.component';
 import { ModalComponent } from './modal/modal.component';
 import { NewPostcardComponent} from './new-postcard/new-postcard.component';
+import { CommunityCardComponent } from './community-card/community-card.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { NewPostcardComponent} from './new-postcard/new-postcard.component';
     LoginPageComponent,
     CommunityPageComponent,
     ModalComponent,
-    NewPostcardComponent
+    NewPostcardComponent,
+    CommunityCardComponent
   ],
   imports: [
     BrowserModule,
