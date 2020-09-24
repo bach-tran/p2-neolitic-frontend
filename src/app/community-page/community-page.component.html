@@ -1,10 +1,13 @@
 <div class="container">
-    <h5><u>Welcome to the Society!</u></h5>
+    <h5 style = "text-align:center"><u>Welcome to the Society!</u></h5>
     <button class="btn btn-light" id = "#newPost" type="button" class="btn btn-primary" data-toggle="modal" data-target="#newPostModal" style="float: right;" >New</button>
-    <ul>
+    <br/>
+    <ul style="list-style-type:none;">
         <li *ngFor="let postcard of postcards">
             <app-postcard (postcardId)="displayModal($event)" [postcard]="postcard"></app-postcard>
+            <br/>
         </li>
+       
     </ul>
 
     <app-modal [postcardId]="modalPostcardId"></app-modal>

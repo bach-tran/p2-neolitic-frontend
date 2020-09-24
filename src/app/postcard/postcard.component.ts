@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Postcard } from '../models/postcard';
 import { environment } from 'src/environments/environment';
+import { Time } from '@angular/common';
 
 @Component({
   selector: 'app-postcard',
@@ -8,9 +9,10 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./postcard.component.css']
 })
 export class PostcardComponent implements OnInit {
-
+  public timePosted : Time;
   @Input() postcard: Postcard;
   public imgSource: string;
+
 
   @Output() postcardId: EventEmitter<number> = new EventEmitter();
 
