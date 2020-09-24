@@ -1,6 +1,10 @@
 <div class="card bg-light text-center">
     <div class = "card-header text-white text-left bg-dark">{{postcard.author.username}}</div>
-    <div class="card-body"><img [src]="imgSource" alt="Card image" class="img-fluid w-100 h-100"></div>
+      <div class="card-body">
+        <a [href] ="imgSource">
+        <img [src]="imgSource" alt="Card image" class="img-fluid" style="width:auto; height:100%; max-height:500px">
+      </a>
+    </div>
     <div class="card-footer bg-dark text-white text-left" >{{postcard.author.username}}: {{postcard.caption}} <br/> 
       <div class = "text-muted">{{postcard.timePosted | date:'medium'}}</div>
       <a href="#" class="btn btn-light" id="commentModalBtn" type="button" class="btn btn-light" data-toggle="modal" data-target="#commentsModal" (click)="emitPostcardId()" 
