@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Postcard } from '../models/postcard'
 import { ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from '../services/authentication-service/authentication-service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-community-page',
@@ -19,20 +21,30 @@ export class CommunityPageComponent implements OnInit, OnDestroy {
   private sub: any;
   postcards = [];
 
-  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
+  constructor(private http: HttpClient, private authenticationService: AuthenticationService, private router: Router, private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
-    this.sub = this.route.params.subscribe(params => {
-      this.communityId = +params['communityId'];
-    });
+  async ngOnInit(): Promise<void> {
+    if (await this.authenticationService.checkAuthorization()) {
+      const user: User = this.authenticationService.getUser();
 
-    this.getPostcards();
-
-    console.log(this.postcards);
+      if (user == null) {
+        this.router.navigate(['login']);
+      } else {
+        this.sub = this.route.params.subscribe(params => {
+          this.communityId = +params['communityId'];
+        });
+    
+        this.getPostcards();
+    
+        console.log(this.postcards);
+      }
+    }
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 
   public async getPostcards(): Promise<Postcard[]> {
