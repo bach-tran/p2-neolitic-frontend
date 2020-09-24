@@ -1,8 +1,8 @@
-<div class="card bg-dark text-center">
-    <img class="card-img-top" [src]="imgSource" alt="Card image">
-    <div class="card-body">
-      <p class="card-text text-white">{{postcard.caption}}</p>
-      <p class="card-text text-white">{{postcard.author.username}}</p>
-      <a class="btn btn-light" id="commentModalBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#commentsModal" (click)="emitPostcardId()">Comment</a>
-    </div>
+<div class="card bg-light text-center">
+    <div class = "card-header text-white text-left bg-dark">{{postcard.author.username}}</div>
+    <div class="card-body"><img [src]="imgSource" alt="Card image" class="img-fluid w-100 h-100"></div>
+    <div class="card-footer bg-dark text-white text-left" >{{postcard.author.username}}: {{postcard.caption}} <br/> 
+      <div class = "text-muted">{{postcard.timePosted | date:'medium'}}</div>
+      <a href="#" class="btn btn-light" id="commentModalBtn" type="button" class="btn btn-light" data-toggle="modal" data-target="#commentsModal" (click)="emitPostcardId()" 
+      style="float: right;">Comments</a></div>
 </div>
