@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Community } from '../models/community'
+import { User } from '../models/user';
+import { AuthenticationService } from '../services/authentication-service/authentication-service';
 
 @Component({
   selector: 'app-consumer-home',
@@ -13,10 +15,18 @@ import { Community } from '../models/community'
 export class ConsumerHomeComponent implements OnInit {
   communities = [];
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private authenticationService: AuthenticationService, private router: Router) { }
 
-  ngOnInit(): void {
-    this.getCommunities();
+  async ngOnInit(): Promise<void> {
+    if (await this.authenticationService.checkAuthorization()) {
+      const user: User = this.authenticationService.getUser();
+
+      if (user == null) {
+        this.router.navigate(['login']);
+      } else {
+        this.getCommunities();
+      }
+    }
   }
 
   private async getCommunities(): Promise<Community[]> {
