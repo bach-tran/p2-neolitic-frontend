@@ -3,7 +3,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="commentsModalTitle">Create a New Post</h5>
+          <h5 class="modal-title" id="commentsModalTitle">What's happening?</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -11,9 +11,11 @@
         <div class="modal-body">
             <form>
               <div class="form-group">
-                <label for="caption" class="col-form-label">Caption:</label>
-                <textarea class="form-control" id="comment-text" [(ngModel)]="caption" name = "caption"></textarea>
                 <input type="file" id="file" (change)="onFileSelected($event)">
+                <br/>
+                <br/>
+                <textarea class="form-control" id="comment-text" [(ngModel)]="caption" name = "caption" placeholder="Add a caption..."></textarea>
+                
               </div>
             </form>
           </div>
