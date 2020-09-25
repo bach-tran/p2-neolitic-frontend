@@ -26,7 +26,7 @@ export class LoginPageComponent implements OnInit {
   private async navigateRole(user: User): Promise<void> {
     if(user != null) {
       if (user.role.userRole === 'admin') {
-        this.router.navigate(['admin-home']);
+        this.router.navigate(['consumer-home']);
       } else if (user.role.userRole === 'consumer') {
         this.router.navigate(['consumer-home']);
       } else {

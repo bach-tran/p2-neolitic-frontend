@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { LogoutService } from "../services/logout-service/logout-service";
-import {NewPostcardService } from "../services/new-postcard-service/new-postcard-service"
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,16 +6,12 @@ import {NewPostcardService } from "../services/new-postcard-service/new-postcard
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  private logoutService: LogoutService;
-
-  constructor( logoutService: LogoutService, newPostcardService: NewPostcardService ) { 
-    this.logoutService = logoutService;
-  }
+  @Input() navType: string;
+  
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  public async logout(): Promise<void> {
-    this.logoutService.logout();
-  }
+
 }
