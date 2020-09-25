@@ -2,24 +2,23 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="commentsModalTitle">Modal title</h5>
+          <h5 class="modal-title" id="commentsModalTitle" >Comments</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <ul>
+          <ul style="list-style: none;">
             <li *ngFor="let comment of comments">
-                <p>{{ comment.text }}</p>
-                <p>- {{ comment.author.username }}</p>
+                <b>{{ comment.author.username }}</b> {{ comment.text }}
+                <p class = "text-muted">{{comment.timePosted | date:'medium'}}</p>
             </li>
           </ul>
         </div>
         <div class="modal-body">
             <form id="commentForm">
               <div class="form-group">
-                <label for="comment-text" class="col-form-label">Comment:</label>
-                <textarea name="commentText" class="form-control" [(ngModel)]="commentText"></textarea>
+                <textarea name="commentText" class="form-control" [(ngModel)]="commentText" placeholder="Add a comment..."></textarea>
               </div>
             </form>
           </div>
