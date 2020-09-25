@@ -1,14 +1,8 @@
+<app-navbar [navType]="role"></app-navbar>
 <div class="container">
     <h5><u>Current Societies Available to Join:</u></h5>
     <ul>
-        <app-community-card  *ngFor="let community of communities" [community]="community"></app-community-card>
-        <!-- <div class="card bg-dark text-center" >
-            <img class="card-img-top" src="https://source.unsplash.com/weekly?{{community.name}}" alt="Card image">
-            <h1 class="card-text text-white">{{ community.name }}</h1>
-            <div class="card-body">
-              <a class="btn btn-light" id="communityModal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#commentsModal" [routerLink]="['/community-page', community.id]">Take me there</a>
-            </div>
-        </div> -->
-        
+        <app-community-card  *ngFor="let community of communities" [community]="community"></app-community-card>        
     </ul>
 </div>
+

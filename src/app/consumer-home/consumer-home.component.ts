@@ -14,16 +14,19 @@ import { AuthenticationService } from '../services/authentication-service/authen
 
 export class ConsumerHomeComponent implements OnInit {
   communities = [];
+  currentUser: User;
+  role: string;
 
   constructor(private http: HttpClient, private authenticationService: AuthenticationService, private router: Router) { }
 
   async ngOnInit(): Promise<void> {
     if (await this.authenticationService.checkAuthorization()) {
-      const user: User = this.authenticationService.getUser();
+      this.currentUser = this.authenticationService.getUser();
 
-      if (user == null) {
+      if (this.currentUser == null) {
         this.router.navigate(['login']);
       } else {
+        this.role = this.currentUser.role.userRole;
         this.getCommunities();
       }
     }
