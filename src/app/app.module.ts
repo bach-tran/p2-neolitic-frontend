@@ -37,7 +37,7 @@ import { NewCommunityComponent } from './new-community/new-community.component';
     AdminNavComponent,
     ConsumerNavComponent,
     UnauthedNavComponent,
-    CommunityNavComponent
+    CommunityNavComponent,
     NewCommunityComponent
   ],
   imports: [
