@@ -8,7 +8,6 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { NewPostcardComponent } from './new-postcard/new-postcard.component';
 import { NewCommunityComponent } from './new-community/new-community.component';
 
-
 const routes: Routes = [
   { path: 'register', component: RegistrationPageComponent },
   { path: 'login', component: LoginPageComponent },

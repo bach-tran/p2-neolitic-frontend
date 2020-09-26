@@ -54,7 +54,6 @@ export class CommunityPageComponent implements OnInit, OnDestroy {
 
     this.setPostcards(await response);
 
-    console.log('this ran');
     return response;
   }
 
