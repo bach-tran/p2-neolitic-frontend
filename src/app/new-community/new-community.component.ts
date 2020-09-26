@@ -16,9 +16,8 @@ export class NewCommunityComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public async registerNew(): Promise<void>
-  {
+  public async registerNew(): Promise<void> {
     await this.newCommunityService.createNewCommunity(this.name, this.description);
-
   }
+  
 }

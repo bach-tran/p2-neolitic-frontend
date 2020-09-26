@@ -24,6 +24,10 @@ export class NewCommunityService {
             withCredentials: true
           }).toPromise();
 
+          let seconds = 2;
+          let e = new Date().getTime() + (seconds * 1000);
+          while (new Date().getTime() <= e) {}
+
           this.router.navigateByUrl("/consumer-home");
           return response;
     }

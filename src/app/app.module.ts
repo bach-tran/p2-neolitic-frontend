@@ -21,6 +21,7 @@ import { UnauthedNavComponent } from './navbar/unauthed-nav/unauthed-nav.compone
 import { CommunityNavComponent } from './navbar/community-nav/community-nav.component';
 import { NewCommunityComponent } from './new-community/new-community.component';
 import { RemovePostComponent } from './remove-post/remove-post.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { RemovePostComponent } from './remove-post/remove-post.component';
     UnauthedNavComponent,
     CommunityNavComponent,
     NewCommunityComponent,
-    RemovePostComponent
+    RemovePostComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,

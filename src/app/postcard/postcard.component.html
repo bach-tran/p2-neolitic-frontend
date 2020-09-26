@@ -1,5 +1,8 @@
 <div class="card bg-light text-center">
-    <div class = "card-header text-white text-left bg-dark">{{postcard.author.username}}</div>
+    <div class="card-header text-white text-left bg-dark">
+      <h5>{{postcard.author.username}}</h5>
+      <p *ngIf="postcard.communityName">From community: {{postcard.communityName}}</p>
+    </div>
       <div class="card-body">
         <a [href] ="imgSource">
         <img [src]="imgSource" alt="Card image" class="img-fluid" style="width:auto; height:100%; max-height:500px">

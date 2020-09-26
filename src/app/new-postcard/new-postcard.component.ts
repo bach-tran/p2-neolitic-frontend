@@ -36,7 +36,7 @@ export class NewPostcardComponent implements OnInit {
     fd.append('file', this.selectedFile);
     fd.append('communityId', this.communityId)
     fd.append('caption', this.caption)
-    console.log(fd);
+
     await this.newPostcardService.createNewPost(fd);
 
     this.updatePosts.emit();
