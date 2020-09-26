@@ -20,6 +20,7 @@ import { ConsumerNavComponent } from './navbar/consumer-nav/consumer-nav.compone
 import { UnauthedNavComponent } from './navbar/unauthed-nav/unauthed-nav.component';
 import { CommunityNavComponent } from './navbar/community-nav/community-nav.component';
 import { NewCommunityComponent } from './new-community/new-community.component';
+import { RemovePostComponent } from './remove-post/remove-post.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { NewCommunityComponent } from './new-community/new-community.component';
     ConsumerNavComponent,
     UnauthedNavComponent,
     CommunityNavComponent,
-    NewCommunityComponent
+    NewCommunityComponent,
+    RemovePostComponent
   ],
   imports: [
     BrowserModule,
