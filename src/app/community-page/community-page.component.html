@@ -13,8 +13,12 @@
 
     <app-modal [postcardId]="modalPostcardId"></app-modal>
     <app-new-postcard (updatePosts)="updatePosts()" [communityId] = "communityId"></app-new-postcard>
+    <app-remove-post (updatePosts)="updatePosts()" [postcardId]="modalPostcardId"></app-remove-post>
 
     <script>
+      $('#removePostModal').on('shown.bs.modal', function () {
+        $('#removePostBtn').trigger('focus');
+      })
       $('#newPostModal').on('shown.bs.modal', function () {
         $('#newPost').trigger('focus');
       })
