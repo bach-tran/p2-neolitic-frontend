@@ -2,6 +2,7 @@
     <img class="card-img-top" src="https://source.unsplash.com/weekly?{{community.name}}" alt="Card image">
     <h1 class="card-text text-white">{{ community.name }}</h1>
     <div class="card-body">
+      <p class="card-text text-white">{{community.description}}</p>
       <a class="btn btn-light" id="communityModal" type="button" class="btn btn-primary" [routerLink]="['/community-page', community.id]">Take me there</a>
     </div>
 </div>
