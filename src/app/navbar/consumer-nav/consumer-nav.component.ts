@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication-service/authentication-service';
 import { LogoutService } from '../../services/logout-service/logout-service';
 
 @Component({
@@ -8,12 +9,16 @@ import { LogoutService } from '../../services/logout-service/logout-service';
   styleUrls: ['./consumer-nav.component.css']
 })
 export class ConsumerNavComponent implements OnInit {
-  
-  constructor(private logoutService: LogoutService, private router: Router) {
+  currentUserId: number;
+
+  constructor(private authService: AuthenticationService, private logoutService: LogoutService, private router: Router) {
     this.logoutService = logoutService;
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    if (await this.authService.checkAuthorization()) {
+      this.currentUserId = this.authService.getUser().id;
+    }
   }
 
   public async logout(): Promise<void> {

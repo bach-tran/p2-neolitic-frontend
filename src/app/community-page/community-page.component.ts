@@ -35,8 +35,6 @@ export class CommunityPageComponent implements OnInit, OnDestroy {
         });
     
         this.getPostcards();
-    
-        console.log(this.postcards);
       }
     }
   }
@@ -64,7 +62,6 @@ export class CommunityPageComponent implements OnInit, OnDestroy {
   }
 
   public displayModal(postcardId: any) {
-    console.log(postcardId);
     this.modalPostcardId = postcardId;
   }
 

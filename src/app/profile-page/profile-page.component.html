@@ -1,0 +1,28 @@
+<app-navbar navType="community"></app-navbar>
+<div class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Welcome to your profile, {{username}}</h1>
+          <p class="lead">See all your posts displayed below.</p>
+        </div>
+    </div>
+    <ul style="list-style-type:none;">
+        <li *ngFor="let postcard of postcards">
+            <app-postcard (postcardId)="displayModal($event)" [postcard]="postcard"></app-postcard>
+            <br/>
+        </li>
+    </ul>
+</div>
+
+<app-modal [postcardId]="modalPostcardId"></app-modal>
+<app-remove-post (updatePosts)="updatePosts()" [postcardId]="modalPostcardId"></app-remove-post>
+
+<script>
+  $('#removePostModal').on('shown.bs.modal', function () {
+    $('#removePostBtn').trigger('focus');
+  })
+  $('#commentsModal').on('shown.bs.modal', function () {
+    $('#commentModalBtn').trigger('focus');
+  })
+</script>
+

@@ -13,7 +13,7 @@ export class CommunityCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.community)
+    
   }
 
 }

@@ -7,4 +7,5 @@ export class Postcard {
     public caption: string;
     public author: User;
     public timePosted: Time;
+    public communityName: string;
 }
