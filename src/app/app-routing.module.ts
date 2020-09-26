@@ -6,6 +6,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { CommunityPageComponent } from './community-page/community-page.component'
 import { HomePageComponent } from './home-page/home-page.component';
 import { NewPostcardComponent } from './new-postcard/new-postcard.component';
+import { NewCommunityComponent } from './new-community/new-community.component';
+
 
 const routes: Routes = [
   { path: 'register', component: RegistrationPageComponent },
@@ -14,7 +16,8 @@ const routes: Routes = [
   { path: 'community-page/:communityId', component: CommunityPageComponent},
   { path: 'home-page', component: HomePageComponent},
   { path: 'new-postcard', component: NewPostcardComponent},
-  { path: '**', redirectTo: 'home-page', pathMatch: 'full' }
+  { path: 'new-society', component: NewCommunityComponent},
+  { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({
