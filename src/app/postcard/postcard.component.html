@@ -8,5 +8,8 @@
     <div class="card-footer bg-dark text-white text-left" >{{postcard.author.username}}: {{postcard.caption}} <br/> 
       <div class = "text-muted">{{postcard.timePosted | date:'medium'}}</div>
       <a href="#" class="btn btn-light" id="commentModalBtn" type="button" class="btn btn-light" data-toggle="modal" data-target="#commentsModal" (click)="emitPostcardId()" 
-      style="float: right;">Comments</a></div>
+      style="float: right;">Comments</a>
+      <a href="#" class="btn btn-danger" id="removePostBtn" type="button" *ngIf="role === 'admin'" data-toggle="modal" data-target="#removeModal" (click)="emitPostcardId()" 
+      style="float: right;">Remove Post</a>
+    </div>
 </div>
