@@ -11,7 +11,6 @@ import { User } from '../../models/user';
 
 export class NewPostcardService {
     @ViewChild('content') content: any;
-    private modals: any[] = [];
 
     constructor( private http: HttpClient ){}
     async createNewPost(form : FormData): Promise <void>

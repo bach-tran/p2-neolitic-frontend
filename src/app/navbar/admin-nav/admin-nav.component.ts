@@ -23,5 +23,6 @@ export class AdminNavComponent implements OnInit {
 
   public createNewCommunity(): void {
     console.log("to do!");
+    this.router.navigateByUrl("/new-society");
   }
 }
