@@ -24,7 +24,10 @@ export class RegistrationPageComponent implements OnInit {
     if (await this.authenticationService.checkAuthorization()) {
       const user: User = this.authenticationService.getUser();
 
-      this.navigateRole(user);
+      if (user != null) {
+        this.navigateRole(user);
+      }
+      
     }
   }
 

@@ -5,7 +5,6 @@ import { RegistrationPageComponent } from './registration-page/registration-page
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CommunityPageComponent } from './community-page/community-page.component'
 import { HomePageComponent } from './home-page/home-page.component';
-import { NewPostcardComponent } from './new-postcard/new-postcard.component';
 
 const routes: Routes = [
   { path: 'register', component: RegistrationPageComponent },
@@ -13,7 +12,6 @@ const routes: Routes = [
   { path: 'consumer-home', component: ConsumerHomeComponent },
   { path: 'community-page/:communityId', component: CommunityPageComponent},
   { path: 'home-page', component: HomePageComponent},
-  { path: 'new-postcard', component: NewPostcardComponent},
   { path: '**', redirectTo: 'home-page', pathMatch: 'full' }
 ];
 

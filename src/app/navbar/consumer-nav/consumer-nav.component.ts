@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LogoutService } from '../../services/logout-service/logout-service';
 
 @Component({
@@ -8,7 +9,7 @@ import { LogoutService } from '../../services/logout-service/logout-service';
 })
 export class ConsumerNavComponent implements OnInit {
   
-  constructor( private logoutService: LogoutService ) {
+  constructor(private logoutService: LogoutService, private router: Router) {
     this.logoutService = logoutService;
   }
 
@@ -17,6 +18,7 @@ export class ConsumerNavComponent implements OnInit {
 
   public async logout(): Promise<void> {
     this.logoutService.logout();
+    this.router.navigate(['login']);
   }
 
 }
